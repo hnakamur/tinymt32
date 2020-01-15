@@ -3,9 +3,9 @@
 package tinymt32
 
 const (
-	Mat1 = 0x8f7011ee
-	Mat2 = 0xfc78ff1f
-	Tmat = 0x3793fdff
+	mat1 = 0x8f7011ee
+	mat2 = 0xfc78ff1f
+	tmat = 0x3793fdff
 )
 
 // A Source represents a source of uniformly-distributed pseudo-random uint32 values in the range [0, 1<<32).
@@ -22,10 +22,10 @@ func NewSource(seed uint32) *Source {
 	const preLoop = 8
 
 	r := &Source{
-		status: [...]uint32{seed, Mat1, Mat2, Tmat},
-		mat1:   Mat1,
-		mat2:   Mat2,
-		tmat:   Tmat,
+		status: [...]uint32{seed, mat1, mat2, tmat},
+		mat1:   mat1,
+		mat2:   mat2,
+		tmat:   tmat,
 	}
 
 	for i := uint32(1); i < minLoop; i++ {
